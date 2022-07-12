@@ -16,8 +16,8 @@ file ictshop.sln
 
 4. Config lại kết nối từ Visual Studio đến SQL Server
 - Tại thẻ <connectionStrings> </connectionStrings>
-thay đổi tên server , tài khoản , mật khẩu kết nối đến sql server
-data source là server name
+thay đổi tên server ( hong cần đổi nếu data source là localhost rồi )  , tài khoản (sa) , mật khẩu (mk của sa trên máy) kết nối đến sql server
+data source là server name ( localhost)
 
 Lưu lại. build lại ứng dụng . Và run
 

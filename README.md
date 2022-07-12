@@ -1,6 +1,6 @@
 # projcet
 
-1. Giải nén
+1. Clone về
 
 2. Kết nối cơ sở dữ liệu
 - Mở thư mục database Copy 2 file vào thư mục data của SQL SERVER

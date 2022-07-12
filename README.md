@@ -5,6 +5,7 @@
 2. Kết nối cơ sở dữ liệu
 - Mở thư mục database Copy 2 file vào thư mục data của SQL SERVER
 PATH: C:\Program Files\Microsoft SQL Server\MSSQL15.SQLEXPRESS\MSSQL\DATA
+- mở sql server
 - lấy server name là : localhost
 - Mở sql server attach db 
 - Xong

@@ -1,5 +1,6 @@
 ﻿* {
-    box-sizing: border-box
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
 h2 {

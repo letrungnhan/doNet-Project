@@ -76,7 +76,7 @@
             background-color: transparent;
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between;
             flex-direction: row;
         }
         footer {
@@ -148,13 +148,7 @@
 
                         </a>
                     </li>
-                    <li>
-                        <a href="~/Views/Home/About.cshtml" title="THONGTIN">
-                            @*<span><i class=" glyphicon-music "></i></span>*@
-                            <span>THÔNG TIN</span>
-
-                        </a>
-                    </li>
+              
                     <li>
                         @Html.Action("GioHangPartial", "GioHang", new { @class = "giohang" })
                     </li>

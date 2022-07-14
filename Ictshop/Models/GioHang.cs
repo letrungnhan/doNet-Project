@@ -14,6 +14,7 @@ namespace Ictshop.Models
         //    get { return iMaSP; }
         //    set { iMaSP = value; }
         //}
+
         Qlbanhang db = new Qlbanhang();
         public int iMasp { get; set; }
         public string sTensp { get; set; }

@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -13,6 +14,7 @@
     <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
     <script src="~/Scripts/jquery-3.4.1.js"></script>
     <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/giohang.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;1,600&display=swap" rel="stylesheet">
     @using Ictshop.Models
 
@@ -72,6 +74,7 @@
         .giohang {
             color: white;
         }
+
         .container-fluid {
             background-color: transparent;
             display: flex;
@@ -79,6 +82,7 @@
             justify-content: space-between;
             flex-direction: row;
         }
+
         footer {
             background-color: azure;
             margin-top: 3rem;
@@ -148,7 +152,7 @@
 
                         </a>
                     </li>
-              
+
                     <li>
                         @Html.Action("GioHangPartial", "GioHang", new { @class = "giohang" })
                     </li>
@@ -182,7 +186,7 @@
 
 
                     </li>
-            
+
 
 
                     </ul>
@@ -193,7 +197,7 @@
             <br>
 
             <div class="container body-content">
-                @RenderBody()  
+                @RenderBody()
             </div>
 
             <footer class="container" style="padding-left:50px">
@@ -243,7 +247,7 @@
                     </div>
                 </div>
                 <hr />
-             
+
             </footer>
 
 

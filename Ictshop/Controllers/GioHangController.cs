@@ -51,10 +51,14 @@ namespace Ictshop.Controllers
             }
         }
         //Cập nhật giỏ hàng 
-        public ActionResult CapNhatGioHang(int iMaSP, FormCollection f)
+        public ActionResult CapNhatGioHang(string iMaSP, string sLMoi)
         {
+            Console.Write(iMaSP);
+            Console.Write(sLMoi);
+            
             //Kiểm tra masp
-            Sanpham sp = db.Sanphams.SingleOrDefault(n => n.Masp== iMaSP);
+            int masp = int.Parse(iMaSP);
+            Sanpham sp = db.Sanphams.SingleOrDefault(n => n.Masp== masp);
             //Nếu get sai masp thì sẽ trả về trang lỗi 404
             if (sp == null)
             {
@@ -64,14 +68,18 @@ namespace Ictshop.Controllers
             //Lấy giỏ hàng ra từ session
             List<GioHang> lstGioHang = LayGioHang();
             //Kiểm tra sp có tồn tại trong session["GioHang"]
-            GioHang sanpham = lstGioHang.SingleOrDefault(n => n.iMasp == iMaSP);
+            GioHang sanpham = lstGioHang.SingleOrDefault(n => n.iMasp == masp);
             //Nếu mà tồn tại thì chúng ta cho sửa số lượng
             if (sanpham != null)
             {
-                sanpham.iSoLuong = int.Parse(f["txtSoLuong"].ToString());
-
+                
+               
+                sanpham.iSoLuong = int.Parse(sLMoi.ToString());
+               
             }
-            return RedirectToAction("GioHang");
+            
+           return RedirectToAction("GioHang");
+            
         }
         //Xóa giỏ hàng
         public ActionResult XoaGioHang(int iMaSP)
@@ -109,51 +117,31 @@ namespace Ictshop.Controllers
             List<GioHang> lstGioHang = LayGioHang();
             return View(lstGioHang);
         }
-        //Tính tổng số lượng và tổng tiền
-        //Tính tổng số lượng
-        private int TongSoLuong()
+       
+        private int TongSanPhamGioHang()
         {
-            int iTongSoLuong = 0;
+            
             List<GioHang> lstGioHang = Session["GioHang"] as List<GioHang>;
             if (lstGioHang != null)
             {
-                iTongSoLuong = lstGioHang.Sum(n => n.iSoLuong);
+                return lstGioHang.Count;
             }
-            return iTongSoLuong;
+           return 0;
         }
-        //Tính tổng thành tiền
-        private double TongTien()
-        {
-            double dTongTien = 0;
-            List<GioHang> lstGioHang = Session["GioHang"] as List<GioHang>;
-            if (lstGioHang != null)
-            {
-                dTongTien = lstGioHang.Sum(n => n.ThanhTien);
-            }
-            return dTongTien;
-        }
+      
         //tạo partial giỏ hàng
         public ActionResult GioHangPartial()
         {
-            if (TongSoLuong() == 0)
+           
+            if (TongSanPhamGioHang() == 0)
             {
                 return PartialView();
             }
-            ViewBag.TongSoLuong = TongSoLuong();
-            ViewBag.TongTien = TongTien();
+            ViewBag.TongSoLuong = TongSanPhamGioHang();
+
             return PartialView();
         }
-        //Xây dựng 1 view cho người dùng chỉnh sửa giỏ hàng
-        public ActionResult SuaGioHang()
-        {
-            if (Session["GioHang"] == null)
-            {
-                return RedirectToAction("Index", "Home");
-            }
-            List<GioHang> lstGioHang = LayGioHang();
-            return View(lstGioHang);
-
-        }
+     
 
         #region Đặt hàng
         //Xây dựng chức năng đặt hàng

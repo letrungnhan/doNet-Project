@@ -34,6 +34,7 @@ namespace Ictshop.Models
             sAnhBia = sp.Anhbia;
             dDonGia = double.Parse(sp.Giatien.ToString());
             iSoLuong = 1;
+         
         }
 
     }

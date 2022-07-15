@@ -52,6 +52,7 @@ namespace Ictshop.Areas.Admin.Controllers
             //Để tạo dropdownList bên view
             var hangselected = new SelectList(db.Hangsanxuats, "Mahang", "Tenhang");
             ViewBag.Mahang = hangselected;
+
             var hdhselected = new SelectList(db.Hedieuhanhs, "Mahdh", "Tenhdh");
             ViewBag.Mahdh = hdhselected;
             return View();
